@@ -1,4 +1,4 @@
-# flutter_tracker_app
+# flutter_food_tracker
 
 A new Flutter project.
 
