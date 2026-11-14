@@ -65,13 +65,14 @@ class _AddFoodUIState extends State<AddFoodUI> {
     if (FoodNameCtrl.text.isEmpty ||
         FoodPersonCtrl.text.isEmpty ||
         FoodPriceCtrl.text.isEmpty ||
-        FoodDateCtrl.text.isEmpty) {
+        FoodDateCtrl.text.isEmpty ||
+        foodMeal.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(' ⚠ กรุณากรอกข้อมูลให้ครบถ้วน',
               style: TextStyle(color: Colors.white)),
           duration: Duration(seconds: 2),
-          backgroundColor: Colors.red,
+          backgroundColor: const Color.fromARGB(255, 244, 67, 54),
         ),
       );
       return;
@@ -99,7 +100,7 @@ class _AddFoodUIState extends State<AddFoodUI> {
           style: TextStyle(color: Colors.white),
         ),
         duration: Duration(seconds: 2),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 76, 175, 80),
       ),
     );
     //กลับไปหน้า ShowAllRun
@@ -147,7 +148,7 @@ class _AddFoodUIState extends State<AddFoodUI> {
                           selectImageFromGallery();
                         },
                         child: Icon(
-                          Icons.add_a_photo,
+                          Icons.camera_enhance_outlined,
                           size: MediaQuery.of(context).size.width * 0.45,
                           color: Colors.grey,
                         ),
@@ -207,7 +208,7 @@ class _AddFoodUIState extends State<AddFoodUI> {
                       selected: selected,
                       showCheckmark: false,
                       // สี
-                      selectedColor: Colors.green,
+                      selectedColor: const Color.fromARGB(255, 76, 175, 80),
                       backgroundColor: const Color.fromARGB(255, 158, 158, 158),
                       // ทรงแคปซูล ไม่มีขอบ
                       shape: const StadiumBorder(),
@@ -335,7 +336,7 @@ class _AddFoodUIState extends State<AddFoodUI> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 24, 179, 10),
+                    backgroundColor: const Color.fromARGB(255, 76, 175, 80),
                     fixedSize: Size(
                       MediaQuery.of(context).size.width,
                       55.0,
@@ -369,7 +370,7 @@ class _AddFoodUIState extends State<AddFoodUI> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 231, 40, 15),
+                    backgroundColor: const Color.fromARGB(255, 244, 67, 54),
                     fixedSize: Size(
                       MediaQuery.of(context).size.width,
                       55.0,

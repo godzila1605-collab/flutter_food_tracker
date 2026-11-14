@@ -40,7 +40,8 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
     if (FoodNameCtrl.text.isEmpty ||
         FoodPersonCtrl.text.isEmpty ||
         FoodPriceCtrl.text.isEmpty ||
-        FoodDateCtrl.text.isEmpty) {
+        FoodDateCtrl.text.isEmpty ||
+        foodMeal.isEmpty) {
       //อันไหนว่าง เตือน
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -49,7 +50,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
             style: TextStyle(color: Colors.white),
           ),
           duration: Duration(seconds: 2),
-          backgroundColor: Colors.red,
+          backgroundColor: const Color.fromARGB(255, 244, 67, 54),
         ),
       );
       return;
@@ -73,7 +74,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
           style: TextStyle(color: Colors.white),
         ),
         duration: Duration(seconds: 2),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 76, 175, 80),
       ),
     );
     //กลับไปหน้า ShowAllRun
@@ -83,7 +84,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
   @override
   void initState() {
     FoodNameCtrl.text = widget.foodDetail!.foodName!;
-    FoodPersonCtrl.text = widget.foodDetail!.foodMeal!;
+    FoodPersonCtrl.text = widget.foodDetail!.foodPerson!;
     FoodDateCtrl.text = widget.foodDetail!.foodDate!;
     FoodPriceCtrl.text = widget.foodDetail!.foodPrice!;
     foodMeal = widget.foodDetail!.foodMeal!;
@@ -175,7 +176,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
                               selectImageFromGallery();
                             },
                             child: Icon(
-                              Icons.add_a_photo,
+                              Icons.camera_enhance_outlined,
                               size: MediaQuery.of(context).size.width * 0.45,
                               color: Colors.grey,
                             ),
@@ -235,7 +236,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
                       selected: selected,
                       showCheckmark: false,
                       // สี
-                      selectedColor: Colors.green,
+                      selectedColor: const Color.fromARGB(255, 76, 175, 80),
                       backgroundColor: const Color.fromARGB(255, 158, 158, 158),
                       // ทรงแคปซูล ไม่มีขอบ
                       shape: const StadiumBorder(),
@@ -361,7 +362,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 24, 179, 10),
+                    backgroundColor: const Color.fromARGB(255, 76, 175, 80),
                     fixedSize: Size(
                       MediaQuery.of(context).size.width,
                       55.0,
@@ -392,7 +393,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(' ✅ ลบข้อมูลเรียบร้อยแล้ว'),
-                        backgroundColor: Colors.green,
+                        backgroundColor: const Color.fromARGB(255, 76, 175, 80),
                         duration: Duration(seconds: 2),
                       ),
                     );
@@ -407,7 +408,7 @@ class _UpdateDeleteUIState extends State<UpdateDeleteUI> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 231, 40, 15),
+                    backgroundColor: const Color.fromARGB(255, 244, 67, 54),
                     fixedSize: Size(
                       MediaQuery.of(context).size.width,
                       55.0,
